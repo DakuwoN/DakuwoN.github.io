@@ -10,6 +10,9 @@ body {
   width: 50%;
   margin: 0 auto;
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Header and navbar styling */
@@ -20,7 +23,7 @@ header {
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 /* Styles for the specific Twitter link */
@@ -56,9 +59,11 @@ li {
   font-size: 1.1em;
 }
 
-a {
-  text-decoration: none;
-}
+/* Let user know it's a link--by keeping it underlined */
+
+/* a {
+   text-decoration: none; 
+}*/
 
 /* Link animations */
 a:link {
@@ -85,6 +90,10 @@ a:active {
 }
 
 /* Main content  */
+
+main {
+  flex: 1;
+}
 
 figure {
   border: 5px solid black;
@@ -152,6 +161,8 @@ p.welcome-content {
 footer {
   display: flex;
   padding: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .left-content,
