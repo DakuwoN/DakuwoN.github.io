@@ -154,6 +154,7 @@ article {
 
 p.welcome-content {
   font-size: 1.1em;
+  font-weight: bolder;
 }
 
 /* Footer content  */
@@ -265,4 +266,56 @@ footer {
   to {
     opacity: 1;
   }
+}
+
+/* Media queries */
+/* Mobile Devices */
+@media only screen and (max-width: 480px) {
+  figure {
+    margin-left: 10em;
+    box-shadow: none;
+    border: none;
+  }
+
+  p.welcome-content {
+    font-size: 1.7rem;
+    font-weight: bolder;
+    line-height: normal;
+  }
+
+  header {
+    display: block;
+    position: relative;
+    top: 10px;
+  }
+
+  nav {
+    position: relative;
+    right: 50px;
+    margin-top: -13px;
+    padding-top: 1px;
+  }
+
+  footer {
+    display: block;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .left-content {
+    margin-bottom: 30px;
+  }
+  .right-content {
+    margin-left: auto;
+    position: relative;
+    right: 50px;
+  }
+}
+
+/* Tablet Devices */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+}
+
+/* Desktop Devices */
+@media only screen and (min-width: 769px) {
 }
