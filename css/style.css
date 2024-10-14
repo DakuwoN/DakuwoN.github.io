@@ -96,83 +96,106 @@ a:active {
   font-weight: 600;
 }
 
-/* Main content  */
-
+/* Main content layout */
 main {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px 0;
 }
 
-figure {
-  border: 5px solid black;
+.main-wrapper {
+  max-width: 1200px;
   width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 1.5rem;
+}
+
+.intro-container {
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
-  box-shadow: 10px 10px;
-  margin: 2em auto;
+  gap: 3rem; /* Increased gap between image and greeting */
+  margin-bottom: 2rem;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
 }
 
 h2 {
+  display: flex;
+  align-items: center;
   font-size: 2.5em;
-  display: inline-block;
   text-align: center;
   background-color: #deb887;
-  margin: 0;
   padding: 0.2em 0.5em;
   border-radius: 0.5rem;
   box-shadow: 10px 10px;
   border: 5px solid black;
 }
 
-.emoji-hand,
-h2,
-figure {
+h2, h2 * {
   background-color: #deb887;
 }
 
-/* Hand waving animation */
 .emoji-hand {
-  padding: 0.2em 0.5em;
-  border-radius: 0.5rem 0 0 0.5rem;
+  margin-right: 0.2em;
   display: inline-block;
   animation: wave 0.5s ease-in-out infinite;
 }
 
 .greeting {
-  padding: 0.2em 0.5em;
-  border-radius: 0 0.5rem 0.5rem 0;
   display: inline-block;
-  background-color: #deb887;
 }
 
-@keyframes wave {
-  0%,
-  100% {
-    transform: rotate(-3deg);
-  }
-  50% {
-    transform: rotate(3deg);
-  }
+.content-container {
+  width: 100%;
 }
-
-/* Paragraph content  */
 
 article {
-  display: flex;
   font-size: 1.1rem;
   font-weight: 500;
-  flex-direction: column;
   line-height: 1.8;
+  text-align: left;
 }
 
-p.welcome-content {
+.welcome-content-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.welcome-content {
   font-size: 1.2rem;
-  font-weight: bolder;
-  line-height: 1.6; /* Added line-height for mobile devices */
+  font-weight: 200;
+  line-height: 1.6;
+}
+
+/* Mobile responsiveness */
+@media only screen and (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Adjust gap for mobile */
+  }
+
+  .profile-image {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    padding: 0.1em 0.3em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .content-container {
+    text-align: center;
+  }
 }
 
 /* Footer content  */
@@ -216,11 +239,31 @@ footer {
   max-width: 1000px;
   position: relative;
   margin: auto;
+  padding: 0 50px; /* Add padding to make room for buttons */
 }
 
 .myProjects {
   display: none;
 }
+
+
+/* Remove underline from slide links */
+.slideshow-container > a {
+  text-decoration: none;
+}
+
+/* Ensure the text within the slides doesn't have an underline */
+.slideshow-container .myProjects .text {
+  text-decoration: none;
+}
+
+/* remove any potential hover effects */
+.slideshow-container > a:hover,
+.slideshow-container > a:focus,
+.slideshow-container > a:active {
+  text-decoration: none;
+}
+
 
 .prev,
 .next {
@@ -228,23 +271,29 @@ footer {
   position: absolute;
   top: 50%;
   width: auto;
-  margin-top: -22px;
   padding: 16px;
   color: #000000;
   font-weight: bold;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
   user-select: none;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none; /* Remove any existing border */
+}
+
+.prev {
+  left: 0; /* Move to the left edge of the container */
 }
 
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 0; /* Move to the right edge of the container */
 }
 
+/* Add hover effect */
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
 }
 
 .text {
@@ -254,6 +303,11 @@ footer {
   bottom: 8px;
   width: 100%;
   text-align: center;
+  text-decoration: none; /* Add this line to remove underline */
+}
+
+.text a {
+  text-decoration: none;
 }
 
 .dot {
@@ -310,12 +364,13 @@ footer {
   h2 {
     font-size: 1.8em;
     padding: 0.1em 0.3em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   p.welcome-content {
-    font-size: 1.2rem;
-    font-weight: bolder;
-    line-height: 1.6; /* Added line-height for mobile devices */
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.4;
   }
 
   footer {
@@ -336,6 +391,22 @@ footer {
   .greeting {
     padding: 0.1em 0.3em;
   }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 150px;
+    height: 150px;
+  }
+
+  article {
+    text-align: center;
+  }
 }
 
 /* Tablet Devices */
@@ -354,13 +425,27 @@ footer {
   }
 
   p.welcome-content {
-    font-size: 1.5rem;
+    font-size: 1.6em;
     line-height: 1.5;
   }
 
   footer {
     font-size: 1.2em;
     font-weight: 700;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  article {
+    text-align: center;
   }
 }
 
@@ -384,6 +469,124 @@ footer {
   }
 
   h2 {
-    font-size: 3em;
+    font-size: 2.5em;
   }
+
+  p.welcome-content {
+    font-size: 1.8em;
+  }
+}
+
+/* Mobile Devices */
+@media only screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image {
+    margin-bottom: 1rem;
+  }
+
+  .content-wrapper {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    padding: 0.1em 0.3em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  p.welcome-content {
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  article {
+    text-align: center;
+  }
+}
+
+/* New styles for profile image layout */
+.main-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+}
+
+.content-wrapper {
+  flex: 1;
+}
+
+/* Mobile responsiveness */
+@media only screen and (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image {
+    margin-bottom: 1rem;
+  }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Dot container */
+.dot-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Existing styles for fade animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
