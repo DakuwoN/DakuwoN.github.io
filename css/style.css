@@ -7,7 +7,8 @@
 }
 
 body {
-  width: 50%;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
   font-size: 16px;
   display: flex;
@@ -18,12 +19,14 @@ body {
 /* Header and navbar styling */
 header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  padding: 20px 0;
 }
 
 h1 {
   font-weight: 500;
+  text-align: center;
 }
 
 /* Styles for the specific Twitter link */
@@ -44,18 +47,22 @@ h1 a[href="https://twitter.com/itsMattMcCane"]:hover
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 1.5em;
+  width: 100%;
 }
 
 ul {
-  display: inline-flex;
+  display: flex;
   list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 li {
-  padding: 20px;
+  padding: 10px;
   font-size: 1.1em;
 }
 
@@ -93,27 +100,32 @@ a:active {
 
 main {
   flex: 1;
+  padding: 20px 0;
 }
 
 figure {
   border: 5px solid black;
-  width: 60%;
-  height: 8em;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
   border-radius: 1.5rem;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
   display: flex;
   box-shadow: 10px 10px;
-  margin-left: -2.6em;
-  margin-top: 4.3em;
+  margin: 2em auto;
 }
 
 h2 {
-  font-size: 3em;
-  padding-right: 0.5em;
-  display: flex;
-  align-items: center;
-  border-radius: 1.5rem;
+  font-size: 2.5em;
+  display: inline-block;
+  text-align: center;
+  background-color: #deb887;
+  margin: 0;
+  padding: 0.2em 0.5em;
+  border-radius: 0.5rem;
+  box-shadow: 10px 10px;
+  border: 5px solid black;
 }
 
 .emoji-hand,
@@ -124,12 +136,17 @@ figure {
 
 /* Hand waving animation */
 .emoji-hand {
-  padding-left: 0.5rem;
-  font-size: 1.5em;
-  padding-right: 16px;
-  border-radius: 1.4em;
+  padding: 0.2em 0.5em;
+  border-radius: 0.5rem 0 0 0.5rem;
   display: inline-block;
   animation: wave 0.5s ease-in-out infinite;
+}
+
+.greeting {
+  padding: 0.2em 0.5em;
+  border-radius: 0 0.5rem 0.5rem 0;
+  display: inline-block;
+  background-color: #deb887;
 }
 
 @keyframes wave {
@@ -149,12 +166,13 @@ article {
   font-size: 1.1rem;
   font-weight: 500;
   flex-direction: column;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 p.welcome-content {
-  font-size: 1.1em;
+  font-size: 1.2rem;
   font-weight: bolder;
+  line-height: 1.6; /* Added line-height for mobile devices */
 }
 
 /* Footer content  */
@@ -164,21 +182,22 @@ footer {
   padding: 20px;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .left-content,
 .right-content {
   display: flex;
   align-items: center;
-  margin-left: -1.25em;
+  margin: 10px 0;
 }
 
 .right-content {
-  margin-left: auto; /* Pushes the social icons to the right */
+  margin-left: auto;
 }
 
 .footer-content {
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 
 .fa-brands {
@@ -270,68 +289,101 @@ footer {
 /* Media queries */
 /* Mobile Devices */
 @media only screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  nav {
+    font-size: 1.2em;
+  }
+
   figure {
-    margin-left: 10em;
+    margin: 2em auto;
     box-shadow: none;
     border: none;
   }
 
+  h2 {
+    font-size: 1.8em;
+    padding: 0.1em 0.3em;
+  }
+
   p.welcome-content {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     font-weight: bolder;
-    line-height: normal;
-  }
-
-  header {
-    display: block;
-    position: relative;
-    top: 10px;
-  }
-
-  nav {
-    position: relative;
-    right: 50px;
-    margin-top: -13px;
-    padding-top: 1px;
+    line-height: 1.6; /* Added line-height for mobile devices */
   }
 
   footer {
-    display: block;
-    position: relative;
-    bottom: 20px;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .left-content {
-    margin-bottom: 30px;
-  }
+  .left-content,
   .right-content {
-    margin-left: auto;
-    position: relative;
-    right: 50px;
+    margin: 10px 0;
+  }
+
+  .right-content {
+    margin-left: 0;
+  }
+
+  .emoji-hand,
+  .greeting {
+    padding: 0.1em 0.3em;
   }
 }
 
 /* Tablet Devices */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
   figure {
-    margin-left: 10em;
-    box-shadow: none;
-    border: none;
-    margin-bottom: 4em;
+    margin: 3em auto;
+    box-shadow: 5px 5px;
+  }
+
+  h2 {
+    font-size: 2.2em;
   }
 
   p.welcome-content {
-    font-size: 2.1rem;
-    font-weight: bolder;
-    line-height: normal;
+    font-size: 1.5rem;
+    line-height: 1.5;
   }
 
   footer {
-    font-size: 1.5em;
-    font-weight: 900;
+    font-size: 1.2em;
+    font-weight: 700;
   }
 }
 
 /* Desktop Devices */
 @media only screen and (min-width: 769px) {
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  nav {
+    width: auto;
+  }
+
+  figure {
+    width: 60%;
+  }
+
+  h2 {
+    font-size: 3em;
+  }
 }

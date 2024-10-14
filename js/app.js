@@ -1,6 +1,9 @@
 // Initialize slideIndex to 1
 let slideIndex = 1;
 
+
+
+
 // Call the showSlides function with the initial slideIndex
 showSlides(slideIndex);
 
