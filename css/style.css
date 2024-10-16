@@ -1,4 +1,5 @@
-/* Default page styling */
+/* Global Styles */
+
 * {
   font-family: "Old Standard TT", serif;
   background-color: #f5f5dc;
@@ -23,6 +24,8 @@ header {
   align-items: center;
   padding: 20px 0;
 }
+
+/* Typography */
 
 h1 {
   font-weight: 500;
@@ -136,6 +139,8 @@ h2 {
   box-shadow: 10px 10px;
   border: 5px solid black;
 }
+
+/* Typography */
 
 h2, h2 * {
   background-color: #deb887;
